@@ -24,8 +24,8 @@ public class SeguroService {
         return instance;
     }
 
-    public void cadastrarCliente(String nome, String documento) {
-        Cliente cliente = new Cliente(nome, documento);
+    public void cadastrarCliente(String nome, String documento, int idade) {
+        Cliente cliente = new Cliente(nome, documento,idade);
         clienteDAO.salvar(cliente);
     }
 

@@ -8,8 +8,20 @@ public class Main {
         SeguroService service = SeguroService.getInstance();
 
         // Cadastrando clientes
-        service.cadastrarCliente("João Silva", "123456789");
-        service.cadastrarCliente("Maria Oliveira", "987654321");
+        try{
+        service.cadastrarCliente("João Silva", "123456789",18);
+        service.cadastrarCliente("Maria Oliveira", "987654321",31);
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+
+        //cliente menor de idade
+        try{
+            service.cadastrarCliente("juan","267321736",17);
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+
 
         // Cadastrando veículos
         service.cadastrarVeiculo("carro", "Fusca", "ABC-1234", "123456789");
@@ -21,7 +33,7 @@ public class Main {
         double premioJoao = service.calcularPremioSeguro("123456789", 10000);
         System.out.println("Prêmio do seguro de João: R$ " + premioJoao);
 
-        double premioMaria = service.calcularPremioSeguro("987654321", 15000);
+        double premioMaria = service.calcularPremioSeguro("987654321", 10000);
         System.out.println("Prêmio do seguro de Maria: R$ " + premioMaria);
 
         // Listando clientes

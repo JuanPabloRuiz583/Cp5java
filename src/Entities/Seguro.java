@@ -10,8 +10,14 @@ public class Seguro {
     }
 
     public double calcularPremio() {
-        // Lógica simplificada para calcular o prêmio
-        return valor * 0.05;
+        int idade = cliente.getIdade();
+        if (idade > 30){
+            return valor * 0.05;
+        }
+        else {
+            return valor * 0.08;
+        }
+
     }
 }
 
